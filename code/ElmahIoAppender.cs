@@ -61,15 +61,38 @@ namespace Sitecore.Foundation.ElmahIo
 
         protected override void Append(LoggingEvent loggingEvent)
         {
-
             var data = PropertiesToData(loggingEvent.Properties);
+
+            string ExtractTitle()
+            {
+                var title = loggingEvent.RenderedMessage;
+                if (title.Contains("\n"))
+                {
+                    return title.Split(new[] { '\n' }).First();
+                }
+
+                return title;
+            }
+
+            string ExtractDetail()
+            {
+                var stackTrace = loggingEvent.GetExceptionStrRep();
+                var title = loggingEvent.RenderedMessage;
+
+                if (title.Contains("\n"))
+                {
+                    return $"{title}\n\n{stackTrace}".Trim();
+                }
+
+                return stackTrace;
+            }
 
             var message = new CreateMessage
             {
-                Title = loggingEvent.RenderedMessage,
+                Title = ExtractTitle(),
                 Severity = LevelToSeverity(loggingEvent.Level).ToString(),
                 DateTime = loggingEvent.TimeStamp.ToUniversalTime(),
-                Detail = loggingEvent.GetExceptionStrRep(),
+                Detail = ExtractDetail(),
                 Data = data,
                 Application = loggingEvent.Domain,
                 Source = loggingEvent.LoggerName,
