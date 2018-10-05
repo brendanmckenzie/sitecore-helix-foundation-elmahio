@@ -32,10 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Templates.cs" />
     <Content Include="Views\**\*.cshtml" />
+    <Content Include="App_Config\**\*.config" />
+    <Compile Include="Templates.cs" />
     <Compile Include="ElmahIoAppender.cs" />
-    <Content Include="App_Config\Include\Foundation\ElmahIo\Foundation.ElmahIo.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
