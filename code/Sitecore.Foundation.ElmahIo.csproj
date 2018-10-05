@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8d911034-db3d-4fc7-853d-24dfcee959a5}</ProjectGuid>
+    <ProjectGuid>{8D911034-DB3D-4FC7-853D-24DFCEE959A5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sitecore.Foundation.ElmahIo</RootNamespace>
@@ -34,14 +34,10 @@
   <ItemGroup>
     <Compile Include="Templates.cs" />
     <Content Include="Views\**\*.cshtml" />
-    <None Include="packages.config" />
     <Compile Include="ElmahIoAppender.cs" />
     <Content Include="App_Config\Include\Foundation\ElmahIo\Foundation.ElmahIo.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Sitecore.Kernel.NoReferences.9.0.171219\lib\NET462\Sitecore.Kernel.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Net" />
@@ -51,24 +47,29 @@
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web" />
-    <Reference Include="Sitecore.Logging">
-      <HintPath>..\..\..\..\packages\Sitecore.Logging.NoReferences.9.0.171219\lib\NET462\Sitecore.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Elmah">
-      <HintPath>..\..\..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Rest.ClientRuntime">
-      <HintPath>..\..\..\..\packages\Microsoft.Rest.ClientRuntime.2.3.6\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="Elmah.Io.Client">
-      <HintPath>..\..\..\..\packages\Elmah.Io.Client.3.2.50\lib\net45\Elmah.Io.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Elmah.Io">
-      <HintPath>..\..\..\..\packages\elmah.io.3.3.43\lib\net45\Elmah.Io.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="elmah.corelibrary">
+      <Version>1.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="elmah.io">
+      <Version>3.3.43</Version>
+    </PackageReference>
+    <PackageReference Include="Elmah.Io.Client">
+      <Version>3.2.50</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime">
+      <Version>2.3.6</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Kernel.NoReferences">
+      <Version>9.0.171219</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Logging.NoReferences">
+      <Version>9.0.171219</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
